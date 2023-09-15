@@ -43,3 +43,12 @@ module "compute" {
   bastion_ip_id = module.network.bastion_ip_id
   bastion_subnet = module.network.azure_public_subnet_ids["bastion_subnet"]
 }
+
+module "security" {
+  source = "./modules/security"
+
+  resource_group_name = var.resource_group_name
+  resource_group_location = var.resource_group_location
+  env = var.env
+  public_subnet_ids = module.network.azure_public_subnet_ids
+}

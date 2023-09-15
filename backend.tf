@@ -8,7 +8,8 @@ terraform {
 }
 
 provider "azurerm" {
-  skip_provider_registration = "true"
+  skip_provider_registration = true
+  storage_use_azuread = true
   features {
 
   }
@@ -26,9 +27,9 @@ resource "azurerm_resource_group" "this_resource_group" {
 # terraform {
 #   backend "azurerm" {
 #     resource_group_name  = "az-project-rg"
-#     storage_account_name = "backendstorage-account99"
-#     container_name       = "backend-tf-container"
-#     key                  = "dev-tfstate"
+#     storage_account_name = "this0storage0account"
+#     container_name       = "this-container"
+#     key                  = "dev-backend-tfstate"
 #   }
 # }
 
